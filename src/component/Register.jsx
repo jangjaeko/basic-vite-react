@@ -7,33 +7,49 @@
 import { useState } from "react";
 
 const Register = () => {
-  const [name, setName] = useState("Name");
-  const [birth, setBirth] = useState("");
-  const [nation, setNation] = useState("");
-  const [intro, setIntro] = useState("");
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    birth: "",
+    nation: "",
+    intro: "",
+  });
 
-  const onChangeName = (e) => {
-    setName(e.target.value);
+  const onChange = (e) => {
+    console.log(e.target.name);
+    console.log(e.target.value);
+    setUserInfo({
+      ...userInfo,
+      [e.target.name]: e.target.value, // dynamic key name (property name)
+    });
   };
-  const onChangeBirth = (e) => {
-    setBirth(e.target.value);
-  };
-  const onChangeNation = (e) => {
-    setNation(e.target.value);
-  };
-  const onChangeIntro = (e) => {
-    setIntro(e.target.value);
-  };
+
+  //   const onChangeName = (e) => {
+  //     setUserInfo({
+  //       ...userInfo,
+  //       name: e.target.value,
+  //     });
+  //   };
+
   return (
     <div>
       <div>
-        <input onChange={onChangeName} placeholder={"Name"} value={name} />
+        <input
+          name="name"
+          onChange={onChange}
+          placeholder={"Name"}
+          value={userInfo.name}
+        />
       </div>
       <div>
-        <input value={birth} onChange={onChangeBirth} type="date" />
+        <input
+          name="birth"
+          value={userInfo.birth}
+          onChange={onChange}
+          type="date"
+        />
       </div>
       <div>
-        <select value={nation} onChange={onChangeNation}>
+        <select name="nation" value={userInfo.nation} onChange={onChange}>
           <option value={""}></option>
           <option value="korea">ko</option>
           <option>us</option>
@@ -42,8 +58,7 @@ const Register = () => {
         </select>
       </div>
       <div>
-        <textarea value={intro} onChange={onChangeIntro} />
-        {intro}
+        <textarea name="intro" value={userInfo.intro} onChange={onChange} />
       </div>
     </div>
   );
