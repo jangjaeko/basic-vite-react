@@ -4,7 +4,7 @@
 // 3. nation
 // 4. self-introduction
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
@@ -14,9 +14,14 @@ const Register = () => {
     intro: "",
   });
 
+  const countRef = useRef(0);
+  const nameInputRef = useRef();
+
   const onChange = (e) => {
-    console.log(e.target.name);
-    console.log(e.target.value);
+    countRef.current++;
+    console.log(countRef.current);
+    // console.log(e.target.name);
+    // console.log(e.target.value);
     setUserInfo({
       ...userInfo,
       [e.target.name]: e.target.value, // dynamic key name (property name)
@@ -30,11 +35,19 @@ const Register = () => {
   //     });
   //   };
 
+  const onSubmit = () => {
+    if (userInfo.name === "") {
+      // focus to name input
+      console.log(nameInputRef.current.focus());
+    }
+  };
+
   return (
     <div>
       <div>
         <input
           name="name"
+          ref={nameInputRef}
           onChange={onChange}
           placeholder={"Name"}
           value={userInfo.name}
@@ -60,6 +73,8 @@ const Register = () => {
       <div>
         <textarea name="intro" value={userInfo.intro} onChange={onChange} />
       </div>
+
+      <button onClick={onSubmit}> submit </button>
     </div>
   );
 };
