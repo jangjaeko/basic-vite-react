@@ -1,3 +1,22 @@
+# React Basics Review with Vite
+
+This is my first React project created using **Vite**.  
+The repository is structured as a step-by-step review of **core React concepts**,  
+with each commit representing a specific learning point.
+
+By following the **commit history**, you can gradually learn and revisit fundamental React syntax and patterns.
+
+---> 📌 _“Follow the commit history to review core React concepts step by step.”_
+
+## 🚀 Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -14,3 +33,4 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
